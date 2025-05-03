@@ -94,7 +94,7 @@ function renderChatrooms(chatrooms) {
     $("#chatroom-list").append(
         "<tr onclick='joinChatroom(" + chatrooms[i].id + ")'><td>"
         + chatrooms[i].id + "</td><td>" + chatrooms[i].title
-        + "<img src='new.png' id='new_" + chatrooms[i].id + "' style='display: "
+        + "<img src='new.png' id='new_" + chatrooms[i].id + "' style='width: 16px; height: 16px; display: "
         + getDisplayValue(chatrooms[i].hasNewMessage) + "'/></td><td>"
         + chatrooms[i].memberCount + "</td><td>" + chatrooms[i].createdAt
         + "</td></tr>"

@@ -1,12 +1,14 @@
+
 spring:
   application:
     name: chatService
   datasource:
     url: jdbc:mysql://localhost:3308/mydb
-    username: user
+    username: myuser
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
     show-sql: true
@@ -34,3 +36,11 @@ spring:
             token-uri: https://kauth.kakao.com/oauth/token
             user-info-uri: https://kapi.kakao.com/v2/user/me
             user-name-attribute: id
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+  address: 0.0.0.0
+  port: 8080

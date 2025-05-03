@@ -8,16 +8,18 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-public class MemberChatroomMapping {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_chatroom_mapping_id")
+public class Message {
+    @GeneratedValue
+    @Column(name = "message_id")
     @Id
-    private Long id;
+    Long id;
+
+    String text;
 
     @JoinColumn(name = "member_id")
     @ManyToOne
@@ -27,11 +29,5 @@ public class MemberChatroomMapping {
     @ManyToOne
     Chatroom chatroom;
 
-    LocalDateTime lastCheckedAt;//이 필드보다 메시지에 createdAt 필드가 빠르면 새로 생성된 메시지
-
-    public void updateLastCheckedAt(){
-        this.lastCheckedAt = LocalDateTime.now();
-    }
-
-
+    LocalDateTime createdAt;
 }

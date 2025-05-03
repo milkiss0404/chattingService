@@ -18,5 +18,7 @@ public class StompConfiguration implements WebSocketMessageBrokerConfigurer {
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         registry.setApplicationDestinationPrefixes("/pub");
         registry.enableSimpleBroker("/sub");
+        //클라이언트가 서버로 메시지를 보낼 때 사용하는 prefix. 예: /pub/chat/message
+        //클라이언트가 서버로부터 메시지를 구독할 때 사용하는 prefix. 예: /sub/chat/room1
     }
 }
